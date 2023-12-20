@@ -1,0 +1,20 @@
+3.1    Design a basic hash function, keeping in mind memory constraints
+          and how you would deal with hash collisions. 	6 points
+Here I suppose to hash the symbols of ASCII code table into a 32 slots table. 
+Hahs function: Hash(key) = key % 32, where key is the decimal value of the symbols.
+The memory usage is constrained by the size of the hash table, which is 32 here.
+Symbols that hash to the same index will be stored in the same slot using a chaining strategy. (Each slot in the hash table will hold a pointer to a linked list holding the values for all the keys that hash to that index)
+
+3.2   Walkthrough your function with an example where there is no hash
+          collision.	12 points
+For example, Symbol ‘A’, its decimal value is 65.
+Calculate the hash value: Hash(65) = 65 % 32 = 1.
+Place A’ in the hash table at index 1, where there is no key currently.
+A linked list at index 1 contains both symbols ‘A’, and slot ‘1’ hold a pointer to a linked list.
+
+3.3    Walkthrough your function with an example of a hash collision	7 points
+For example, if symbol ‘A’ has been placed in the hash table at index 1. Then for symbol ‘a’, whose decimal value is 97.
+Calculate the hash value: Hash(97) = 97 % 32 = 1.
+The symbol ‘a’ is also placed in hash table at index 1. 
+So, with the chaining strategy, a linked list at index 1 contains both symbols ‘A’ and ‘a’.
+ 
